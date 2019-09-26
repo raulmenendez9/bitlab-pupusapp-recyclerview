@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import sv.edu.bitlab.pupusap.Models.Orden
 import kotlin.collections.HashMap as HashMap1
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainViewHolder.MainItemListener {
 
-    val orden = Orden()
+  val orden = Orden()
 
-    /*val pupusaStringResources = hashMapOf(
+    val pupusaStringResources = hashMapOf(
         QUESO to R.string.pupusa_queso,
         FRIJOLES to R.string.frijol_con_queso,
         REVUELTAS to R.string.revueltas,
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         AYOTE to R.string.ayote,
         CHIPILIN to R.string.chipilin
 
-    )*/
+    )
 
     var botonesMaiz = hashMapOf<String, Button>()
     var botonesArroz = hashMapOf<String, Button>()
@@ -84,8 +84,8 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView: RecyclerView= findViewById(R.id.containerView)
         recyclerView.layoutManager=LinearLayoutManager(this, RecyclerView.VERTICAL,false)
-         val maiz = ArrayList<String>()
-        val arroz = ArrayList<String>()
+         var maiz = ArrayList<String>()
+        var arroz = ArrayList<String>()
 
       maiz.add("QUESO")
       maiz.add("Frijoles")
@@ -101,15 +101,15 @@ class MainActivity : AppCompatActivity() {
       arroz.add("Loroco")
       arroz.add("Chipillin")
 
-        val adapter=MainAdapter(maiz,arroz)
+        val adapter=MainAdapter(maiz,arroz,this)
         recyclerView.adapter=adapter
 
-     // displayCounters()
+     displayCounters()
 //        setActionBar(null)
         Log.d("ACTIVITY", "MainActivity onCreate()")
     }
 
-    /*fun displayCounters() {
+    fun displayCounters() {
         for ((key,value) in orden.maiz){
             val resource = pupusaStringResources[key]
             val text = this.resources.getString(resource!!, value)
@@ -124,21 +124,21 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+   override fun addMaiz(relleno: String) {
+    orden.maiz[relleno] = orden.maiz[relleno]!! + 1
+    val contador = orden.maiz[relleno]
+    val resource = pupusaStringResources[relleno]
+    val text = this.resources.getString(resource!!, contador)
+    botonesMaiz[relleno]!!.text = text
+  }
+  override fun addArroz(relleno: String) {
+    orden.arroz[relleno] = orden.arroz[relleno]!! + 1
+    val contador =  orden.arroz[relleno]
+    val resource = pupusaStringResources[relleno]
+    val text = this.resources.getString(resource!!, contador)
+    botonesArroz[relleno]!!.text = text
+  }
 
-    fun addMaiz(relleno: String) {
-        orden.maiz[relleno] = orden.maiz[relleno]!! + 1
-        val contador = orden.maiz[relleno]
-        val resource = pupusaStringResources[relleno]
-        val text = this.resources.getString(resource!!, contador)
-        botonesMaiz[relleno]!!.text = text
-    }
-    fun addArroz(relleno: String) {
-        orden.arroz[relleno] = orden.arroz[relleno]!! + 1
-        val contador =  orden.arroz[relleno]
-        val resource = pupusaStringResources[relleno]
-        val text = this.resources.getString(resource!!, contador)
-        botonesArroz[relleno]!!.text = text
-    }*/
 
     private fun confirmarOrden() {
         val intent = Intent(this, DetalleOrdeActivity::class.java)
