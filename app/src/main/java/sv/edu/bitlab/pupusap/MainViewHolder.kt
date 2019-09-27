@@ -26,31 +26,22 @@ class MainViewHolder (itemView: View, val listener: MainItemListener): RecyclerV
       datas to relleno2!!
     )
 
-    when(itemView){
-      relleno1->itemView.setOnClickListener{
-       // addMaiz(data)
+      relleno1.setOnClickListener{
+        listener.displayCounters(botonesMaiz)
+       listener.addMaiz(data, botonesMaiz)
       }
-      relleno2->itemView.setOnClickListener{
-        //addArroz(data)
+      relleno2.setOnClickListener{
+        listener.displayCounters(botonesArroz)
+        listener.addArroz(datas, botonesArroz)
       }
-    }
-    //displayCounters()
+
+
 
   }
-
-  val pupusaStringResources = hashMapOf(
-    QUESO to R.string.pupusa_queso,
-    FRIJOLES to R.string.frijol_con_queso,
-    REVUELTAS to R.string.revueltas,
-    LOROCO to R.string.queso_con_loroco,
-    AYOTE to R.string.ayote,
-    CHIPILIN to R.string.chipilin
-
-  )
-
   interface MainItemListener {
-    fun addMaiz(relleno: String)
-    fun addArroz(relleno: String)
+    fun displayCounters(relleno: HashMap<String, Button>)
+    fun addMaiz(relleno: String, botonM : HashMap<String, Button>)
+    fun addArroz(relleno: String, botonA : HashMap<String, Button>)
   }
 
 

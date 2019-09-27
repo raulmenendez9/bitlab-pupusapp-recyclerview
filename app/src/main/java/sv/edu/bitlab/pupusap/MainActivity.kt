@@ -10,7 +10,6 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import sv.edu.bitlab.pupusap.Models.Orden
-import kotlin.collections.HashMap as HashMap1
 
 class MainActivity : AppCompatActivity(), MainViewHolder.MainItemListener {
 
@@ -88,55 +87,57 @@ class MainActivity : AppCompatActivity(), MainViewHolder.MainItemListener {
         var arroz = ArrayList<String>()
 
       maiz.add("QUESO")
-      maiz.add("Frijoles")
-      maiz.add("Revueltas")
-      maiz.add("Ayote")
-      maiz.add("Loroco")
-      maiz.add("Chipillin")
+      maiz.add("FRIJOLES")
+      maiz.add("REVUELTAS")
+      maiz.add("AYOTE")
+      maiz.add("LOROCO")
+      maiz.add("CHIPILIN")
 
-      arroz.add("Queso")
-      arroz.add("Frijoles")
-      arroz.add("Revueltas")
-      arroz.add("Ayote")
-      arroz.add("Loroco")
-      arroz.add("Chipillin")
+      arroz.add("QUESO")
+      arroz.add("FRIJOLES")
+      arroz.add("REVUELTAS")
+      arroz.add("AYOTE")
+      arroz.add("LOROCO")
+      arroz.add("CHIPILIN")
 
         val adapter=MainAdapter(maiz,arroz,this)
         recyclerView.adapter=adapter
 
-     displayCounters()
+     //displayCounters()
 //        setActionBar(null)
         Log.d("ACTIVITY", "MainActivity onCreate()")
     }
 
-    fun displayCounters() {
-        for ((key,value) in orden.maiz){
-            val resource = pupusaStringResources[key]
-            val text = this.resources.getString(resource!!, value)
-            botonesMaiz[key]!!.text = text
-        }
+   override fun displayCounters(relleno: kotlin.collections.HashMap<String, Button>) {
+     if (relleno == botonesMaiz) {
+       for ((key, value) in orden.maiz) {
+         val resource = pupusaStringResources[key]
+         val text = this.resources.getString(resource!!, value)
+         relleno[key]!!.text = text
+       }
+     }else if(relleno==botonesArroz){
 
-
-        for ((key,value) in orden.arroz){
-            val resource = pupusaStringResources[key]
-            val text = this.resources.getString(resource!!, value)
-            botonesArroz[key]!!.text = text
-        }
+       for ((key, value) in orden.arroz) {
+         val resource = pupusaStringResources[key]
+         val text = this.resources.getString(resource!!, value)
+         relleno[key]!!.text = text
+       }
+     }
 
     }
-   override fun addMaiz(relleno: String) {
+   override fun addMaiz(relleno: String, botonM: kotlin.collections.HashMap<String, Button>) {
     orden.maiz[relleno] = orden.maiz[relleno]!! + 1
     val contador = orden.maiz[relleno]
     val resource = pupusaStringResources[relleno]
     val text = this.resources.getString(resource!!, contador)
-    botonesMaiz[relleno]!!.text = text
+    botonM[relleno]!!.text = text
   }
-  override fun addArroz(relleno: String) {
+  override fun addArroz(relleno: String, botonA: kotlin.collections.HashMap<String, Button>) {
     orden.arroz[relleno] = orden.arroz[relleno]!! + 1
     val contador =  orden.arroz[relleno]
     val resource = pupusaStringResources[relleno]
     val text = this.resources.getString(resource!!, contador)
-    botonesArroz[relleno]!!.text = text
+    botonA[relleno]!!.text = text
   }
 
 

@@ -2,6 +2,7 @@ package sv.edu.bitlab.pupusap.Models
 
 import android.os.Parcel
 import android.os.Parcelable
+import sv.edu.bitlab.pupusap.LOROCO
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -12,12 +13,18 @@ class Orden() : Parcelable {
   var maiz = hashMapOf(
     QUESO to 0,
     FRIJOLES to 0,
-    REVUELTAS to 0
+    REVUELTAS to 0,
+    AYOTE to 0,
+    LOROCO to 0,
+    CHIPILIN to 0
   )
   var arroz = hashMapOf(
     QUESO to 0,
     FRIJOLES to 0,
-    REVUELTAS to 0
+    REVUELTAS to 0,
+    AYOTE to 0,
+    LOROCO to 0,
+    CHIPILIN to 0
   )
   private var fecha:Calendar = Calendar.getInstance()
 
@@ -76,6 +83,9 @@ class Orden() : Parcelable {
     const val QUESO = "QUESO"
     const val FRIJOLES = "FRIJOLES"
     const val REVUELTAS = "REVUELTAS"
+    const val AYOTE = "AYOTE"
+    const val LOROCO = "LOROCO"
+    const val CHIPILIN = "CHIPILIN"
     const val MAIZ = "MAIZ"
     const val ARROZ = "ARROZ"
     const val FORMATO_FECHA = "dd-MM-yyyy" //09-09-2019

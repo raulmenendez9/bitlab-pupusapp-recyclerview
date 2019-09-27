@@ -12,13 +12,13 @@
     android:id="@+id/recyclerContainer">
 
   <Button
-      android:id="@+id/masaArroz"
+      android:id="@+id/masaMaiz"
       style="@style/AppTheme.botonPupusaIzquierdo"
       android:text="@string/Relleno2"
       android:layout_marginStart="10dp"/>
 
   <Button
-      android:id="@+id/masaMaiz"
+      android:id="@+id/masaArroz"
       style="@style/AppTheme.botonPupusaDerecho"
       android:background="@drawable/round_button"
       android:text="@string/Relleno"
