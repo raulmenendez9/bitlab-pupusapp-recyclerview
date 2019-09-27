@@ -33,9 +33,15 @@ class Orden() : Parcelable {
     dest.writeInt(maiz[QUESO]!!)
     dest.writeInt(maiz[FRIJOLES]!!)
     dest.writeInt(maiz[REVUELTAS]!!)
+    dest.writeInt(maiz[AYOTE]!!)
+    dest.writeInt(maiz[LOROCO]!!)
+    dest.writeInt(maiz[CHIPILIN]!!)
     dest.writeInt(arroz[QUESO]!!)
     dest.writeInt(arroz[FRIJOLES]!!)
     dest.writeInt(arroz[REVUELTAS]!!)
+    dest.writeInt(arroz[AYOTE]!!)
+    dest.writeInt(arroz[LOROCO]!!)
+    dest.writeInt(arroz[CHIPILIN]!!)
     dest.writeString(this.getFecha())
   }
 
@@ -44,9 +50,15 @@ class Orden() : Parcelable {
     maiz[QUESO] = parcel.readInt()
     maiz[FRIJOLES] = parcel.readInt()
     maiz[REVUELTAS] = parcel.readInt()
+    maiz[AYOTE] = parcel.readInt()
+    maiz[LOROCO] = parcel.readInt()
+    maiz[CHIPILIN] = parcel.readInt()
     arroz[QUESO] = parcel.readInt()
     arroz[FRIJOLES] = parcel.readInt()
     arroz[REVUELTAS] = parcel.readInt()
+    arroz[AYOTE] = parcel.readInt()
+    arroz[LOROCO] = parcel.readInt()
+    arroz[CHIPILIN] = parcel.readInt()
     setFecha(parcel.readString()!!)
   }
 
