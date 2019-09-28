@@ -77,37 +77,38 @@ class  DetalleOrdeActivity : AppCompatActivity(), DetalleOrdeViewHolder.DetalleL
 
   fun getDescripcion(index: Int):String{
     return when(index){
-      QUESO ->"Q ARR"
-      FRIJOLES->"FQ ARR"
-      REVUELTAS->"R ARR"
-      AYOTE-> "AY ARR"
-      LOROCO-> "L ARR"
-      CHIPILIN-> "CH ARR"
       QUESO_MAIZ->"Q M"
       FRIJOLES_MAIZ-> "FQ M"
       REVUELTAS_MAIZ-> "R M"
       AYOTE_MAIZ->"AY M"
       LOROCO_MAIZ->"L M"
       CHIPILIN_MAIZ->"CH M"
+      QUESO ->"Q ARR"
+      FRIJOLES->"FQ ARR"
+      REVUELTAS->"R ARR"
+      AYOTE-> "AY ARR"
+      LOROCO-> "L ARR"
+      CHIPILIN-> "CH ARR"
+
       else -> throw RuntimeException("Pupusa no soportada")
     }
   }
 
   companion object {
-    const val QUESO = 0//3
-    const val FRIJOLES = 1//4
-    const val REVUELTAS = 2//5
-    const val AYOTE =3
-    const val LOROCO =4
-    const val CHIPILIN =5
-    const val QUESO_MAIZ = 6//3
-    const val FRIJOLES_MAIZ = 7//4
-    const val REVUELTAS_MAIZ = 8//5
-    const val AYOTE_MAIZ = 9
-    const val LOROCO_MAIZ = 10
-    const val CHIPILIN_MAIZ = 11
-    const val CONTADOR_ARROZ = "ARROZ"
+    const val QUESO_MAIZ = 0//3
+    const val FRIJOLES_MAIZ = 1//4
+    const val REVUELTAS_MAIZ = 2//5
+    const val AYOTE_MAIZ = 3
+    const val LOROCO_MAIZ = 4
+    const val CHIPILIN_MAIZ = 5
+    const val QUESO = 6
+    const val FRIJOLES = 7
+    const val REVUELTAS = 8
+    const val AYOTE =9
+    const val LOROCO =10
+    const val CHIPILIN =11
     const val CONTADOR_MAIZ = "MAIZ"
+    const val CONTADOR_ARROZ = "ARROZ"
     const val VALOR_PUPUSA = 0.5F
     const val FRAGMENT_TAG = "FRAGMENT_TAG"
   }
