@@ -10,6 +10,8 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import sv.edu.bitlab.pupusap.DetalleOrden.DetalleOrdeActivity
+import sv.edu.bitlab.pupusap.DetalleOrden.DetalleOrdeActivity.Companion.CONTADOR_ARROZ
+import sv.edu.bitlab.pupusap.DetalleOrden.DetalleOrdeActivity.Companion.CONTADOR_MAIZ
 import sv.edu.bitlab.pupusap.Models.Orden
 
 class MainActivity : AppCompatActivity(), MainViewHolder.MainItemListener {
@@ -144,7 +146,24 @@ class MainActivity : AppCompatActivity(), MainViewHolder.MainItemListener {
 
     private fun confirmarOrden() {
         val intent = Intent(this, DetalleOrdeActivity::class.java)
-        intent.putExtra(ORDEN,orden)
+      var maiz = arrayListOf(
+        orden.maiz[QUESO],
+        orden.maiz[FRIJOLES],
+        orden.maiz[REVUELTAS],
+        orden.maiz[AYOTE],
+        orden.maiz[LOROCO],
+        orden.maiz[CHIPILIN]
+      )
+      var arroz = arrayListOf(
+        orden.arroz[QUESO],
+        orden.arroz[FRIJOLES],
+        orden.arroz[REVUELTAS],
+        orden.arroz[AYOTE],
+        orden.arroz[LOROCO],
+        orden.arroz[CHIPILIN]
+      )
+        intent.putExtra(CONTADOR_MAIZ,maiz)
+      intent.putExtra(CONTADOR_ARROZ, arroz)
         this.startActivity(intent)
     }
 
